@@ -1,0 +1,2 @@
+﻿  Application.cpp
+C:\Users\kusha\Downloads\Game dev\OpenGL\OpenGL\src\Application.cpp(1,9): fatal  error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
