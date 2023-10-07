@@ -145,6 +145,7 @@ int main(void)
         0.5f,-0.5f,
         0.5f, 0.5f,
         -0.5f,0.5f,
+
     };
 
     unsigned int indices[] = {
