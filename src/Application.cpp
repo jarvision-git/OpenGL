@@ -165,7 +165,7 @@ int main(void)
         ASSERT(location != -1);
 
         //unbinding everything
-        GLCall(glBindVertexArray(0));
+        va.Unbind();
         GLCall(glUseProgram(0));
         GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
         GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
