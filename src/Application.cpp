@@ -9,6 +9,7 @@
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "Renderer.h "
+#include "VertexArray.h"
 using namespace std;
 
 
@@ -141,16 +142,13 @@ int main(void)
             2,3,0
         };
 
-        unsigned int vao;
-        GLCall(glGenVertexArrays(1, &vao));
-        GLCall(glBindVertexArray(vao));
-
+        VertexArray va;
         VertexBuffer vb(positions, 4 * 2 * sizeof(float));
+        VertexBufferLayout layout;
+        layout.Push<float>(2);
+        va.AddBuffer(vb,layout);
 
-        //specify data format and position of an array of generic vertex attrib
-        //specifies layout of buffer
-        GLCall(glEnableVertexAttribArray(0));
-        GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0));
+        
 
         IndexBuffer ib(indices, 6);
 
@@ -196,7 +194,8 @@ int main(void)
             GLCall(glUseProgram(shader));
             GLCall(glUniform4f(location, r, 0.3f, 0.8f, 1.0f));//they are per draw
 
-            GLCall(glBindVertexArray(vao));
+            
+            va.Bind();
             ib.Bind();
 
 
